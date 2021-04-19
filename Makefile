@@ -1,5 +1,5 @@
-Radon: main.cpp
-	g++ main.cpp `wx-config --cxxflags --libs` -o Radon
+Radon: App.cpp
+	g++ Main.cpp App.cpp `wx-config --cxxflags --libs` -o Radon
 
 .PHONY: test clean
 
