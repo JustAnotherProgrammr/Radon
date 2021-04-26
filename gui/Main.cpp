@@ -7,25 +7,10 @@ wxEND_EVENT_TABLE()
 Main::Main() : wxFrame(nullptr, wxID_ANY, "Radon - Untitled Document", wxPoint(0, 0), wxSize(800, 600))
 {
     // Add private fonts
+    wxFont InterEL = addPrivateFont("Inter-ExtraLight.ttf", "Inter-ExtraLight");
+    wxFont InterBold = addPrivateFont("Inter-Bold.ttf", "Inter-Bold");
+    wxFont InterReg = addPrivateFont("Inter-Regular.ttf", "Inter-Regular");
 
-        // Inter-ExtraLight.ttf
-        wxString privfont;
-        privfont << wxStandardPaths::Get().GetExecutablePath();
-        wxFileName fn = wxFileName::DirName(privfont);
-        fn.RemoveLastDir();
-        privfont = fn.GetFullPath();
-
-        privfont << "font/Inter-ExtraLight.ttf";
-    
-        wxPrintf(privfont + "\n");
-
-        if (!wxFont::AddPrivateFont(privfont)) {
-            wxLogMessage("Could not load private fonts");
-            Close();
-        }
-
-        wxFont InterBold(wxFontInfo(30).FaceName("Inter"));
-    
     // Add menu bar
     m_mbar = new wxMenuBar();
     this->SetMenuBar(m_mbar);
@@ -44,11 +29,33 @@ Main::Main() : wxFrame(nullptr, wxID_ANY, "Radon - Untitled Document", wxPoint(0
     // Add main text box, font and grid layout
 	m_tbx1 = new wxRichTextCtrl(this, wxID_ANY, "", wxDefaultPosition, wxDefaultSize, wxTE_MULTILINE);
 
-    //m_font1 = new wxFont(12, wxFONTFAMILY_MODERN, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD);
-    m_tbx1->SetFont(InterBold);
+    m_tbx1->SetFont(InterReg);
     
     wxGridSizer *m_gridSizer = new wxGridSizer(10, 10, 0, 0);
     m_gridSizer->Add(m_tbx1, 1, wxEXPAND | wxALL);
+}
+
+wxFont Main::addPrivateFont(wxString pathName, wxString faceName) 
+{
+    // Inter-ExtraLight.ttf
+    wxString privfont;
+    privfont << wxStandardPaths::Get().GetExecutablePath();
+    wxFileName fn = wxFileName::DirName(privfont);
+    fn.RemoveLastDir();
+    privfont = fn.GetFullPath();
+
+    privfont << "font/" + pathName;
+    
+    wxPrintf(privfont + "\n");
+
+    if (!wxFont::AddPrivateFont(privfont)) {
+        wxLogMessage("Could not load private fonts");
+        Close();
+    }
+
+    wxFont font(wxFontInfo(30).FaceName(faceName));
+
+    return font;
 }
 
 void Main::OnMenuNew(wxCommandEvent & evt) 

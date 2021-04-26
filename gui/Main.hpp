@@ -12,6 +12,8 @@ class Main : public wxFrame
 		Main();
 		~Main();
 	private:
+		wxFont addPrivateFont(wxString pathName, wxString faceName);
+
 		void OnMenuNew(wxCommandEvent &evt);
 		void OnMenuOpen(wxCommandEvent &evt);
 		void OnMenuSave(wxCommandEvent &evt);
