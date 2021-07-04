@@ -1,9 +1,13 @@
+# define application root directory
+ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
+
 # set non-optional compiler flags here
 CXXFLAGS += -std=c++11 -Wall -Wextra -pedantic-errors
 
 # set non-optional preprocessor flags here
 # eg. project specific include directories
-CPPFLAGS += `wx-config --cxxflags --libs`
+CPPFLAGS += `$(ROOT_DIR)/dep/wxWidgets/gtk-build/wx-config --cxxflags --libs std, richtext`
+
 
 # find cpp files in subdirectories
 APPSOURCE := $(shell find . -name 'App.cpp')
