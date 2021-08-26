@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Radon"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/owen/CLionProjects/Radon/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j6 -f &quot;/home/owen/CLionProjects/Radon/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/home/owen/CLionProjects/Radon/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/home/owen/CLionProjects/Radon/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/home/owen/CLionProjects/Radon/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/owen/CLionProjects/Radon/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j6 -f &quot;/home/owen/CLionProjects/Radon/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/home/owen/CLionProjects/Radon/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/home/owen/CLionProjects/Radon/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/home/owen/CLionProjects/Radon/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/owen/CLionProjects/Radon/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j6 -f &quot;/home/owen/CLionProjects/Radon/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/home/owen/CLionProjects/Radon/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/home/owen/CLionProjects/Radon/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/home/owen/CLionProjects/Radon/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Radon">
+				<Option output="/home/owen/CLionProjects/Radon/cmake-build-debug/Radon" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/owen/CLionProjects/Radon/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D__WXGTK3__"/>
+					<Add option="-D__WXGTK__"/>
+					<Add directory="/home/owen/CLionProjects/Radon/dep/wxWidgets-build/lib/wx/include/gtk3-unicode-static-3.1"/>
+					<Add directory="/home/owen/CLionProjects/Radon/dep/wxWidgets-build/include/wx-3.1"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j6 -f &quot;/home/owen/CLionProjects/Radon/cmake-build-debug/Makefile&quot;  VERBOSE=1 Radon"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/home/owen/CLionProjects/Radon/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/home/owen/CLionProjects/Radon/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/home/owen/CLionProjects/Radon/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Radon/fast">
+				<Option output="/home/owen/CLionProjects/Radon/cmake-build-debug/Radon" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/owen/CLionProjects/Radon/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D__WXGTK3__"/>
+					<Add option="-D__WXGTK__"/>
+					<Add directory="/home/owen/CLionProjects/Radon/dep/wxWidgets-build/lib/wx/include/gtk3-unicode-static-3.1"/>
+					<Add directory="/home/owen/CLionProjects/Radon/dep/wxWidgets-build/include/wx-3.1"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j6 -f &quot;/home/owen/CLionProjects/Radon/cmake-build-debug/Makefile&quot;  VERBOSE=1 Radon/fast"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/home/owen/CLionProjects/Radon/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/home/owen/CLionProjects/Radon/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/home/owen/CLionProjects/Radon/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/owen/CLionProjects/Radon/src/App.cpp">
+			<Option target="Radon"/>
+		</Unit>
+		<Unit filename="/home/owen/CLionProjects/Radon/src/App.h">
+			<Option target="Radon"/>
+		</Unit>
+		<Unit filename="/home/owen/CLionProjects/Radon/src/Main.cpp">
+			<Option target="Radon"/>
+		</Unit>
+		<Unit filename="/home/owen/CLionProjects/Radon/src/Main.h">
+			<Option target="Radon"/>
+		</Unit>
+		<Unit filename="/home/owen/CLionProjects/Radon/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
