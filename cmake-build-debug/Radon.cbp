@@ -41,7 +41,7 @@
 				<Option output="/home/owen/CLionProjects/Radon/cmake-build-debug/Radon" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/home/owen/CLionProjects/Radon/cmake-build-debug"/>
 				<Option object_output="./"/>
-				<Option type="1"/>
+				<Option type="0"/>
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-D__WXGTK3__"/>
@@ -67,7 +67,7 @@
 				<Option output="/home/owen/CLionProjects/Radon/cmake-build-debug/Radon" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/home/owen/CLionProjects/Radon/cmake-build-debug"/>
 				<Option object_output="./"/>
-				<Option type="1"/>
+				<Option type="0"/>
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-D__WXGTK3__"/>

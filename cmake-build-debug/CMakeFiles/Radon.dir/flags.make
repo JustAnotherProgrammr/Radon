@@ -6,5 +6,5 @@ CXX_DEFINES = -D__WXGTK3__ -D__WXGTK__
 
 CXX_INCLUDES = -isystem /home/owen/CLionProjects/Radon/dep/wxWidgets-build/lib/wx/include/gtk3-unicode-static-3.1 -isystem /home/owen/CLionProjects/Radon/dep/wxWidgets-build/include/wx-3.1
 
-CXX_FLAGS =  -pthread -g
+CXX_FLAGS =  -pthread -g -std=gnu++17
 

@@ -1,17 +1,4 @@
 /home/owen/Downloads/clion-2021.1.3/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - Unix Makefiles" /home/owen/CLionProjects/Radon
--- The C compiler identification is GNU 9.3.0
--- The CXX compiler identification is GNU 9.3.0
--- Detecting C compiler ABI info
--- Detecting C compiler ABI info - done
--- Check for working C compiler: /usr/lib/ccache/cc - skipped
--- Detecting C compile features
--- Detecting C compile features - done
--- Detecting CXX compiler ABI info
--- Detecting CXX compiler ABI info - done
--- Check for working CXX compiler: /usr/lib/ccache/c++ - skipped
--- Detecting CXX compile features
--- Detecting CXX compile features - done
--- Found wxWidgets: -L/home/owen/CLionProjects/Radon/dep/wxWidgets-build/lib;-pthread;/home/owen/CLionProjects/Radon/dep/wxWidgets-build/lib/libwx_gtk3u_richtext-3.1.a;/home/owen/CLionProjects/Radon/dep/wxWidgets-build/lib/libwx_gtk3u_html-3.1.a;/home/owen/CLionProjects/Radon/dep/wxWidgets-build/lib/libwx_gtk3u_core-3.1.a;/home/owen/CLionProjects/Radon/dep/wxWidgets-build/lib/libwx_baseu_xml-3.1.a;/home/owen/CLionProjects/Radon/dep/wxWidgets-build/lib/libwx_baseu-3.1.a;/usr/lib/x86_64-linux-gnu/libSM.so;/usr/lib/x86_64-linux-gnu/libICE.so;/usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so;/usr/lib/x86_64-linux-gnu/libXtst.so;-lwx_gtk3u_core-3.1;-lgtk-3;-lgdk-3;-lpangocairo-1.0;-lpango-1.0;-lharfbuzz;-latk-1.0;-lcairo-gobject;-lcairo;-lgdk_pixbuf-2.0;-lgio-2.0;-lgobject-2.0;-lglib-2.0;/usr/lib/x86_64-linux-gnu/libSM.so;/usr/lib/x86_64-linux-gnu/libICE.so;/usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so;/usr/lib/x86_64-linux-gnu/libXtst.so;/usr/lib/x86_64-linux-gnu/libjpeg.so;/usr/lib/x86_64-linux-gnu/libpng.so;/usr/lib/x86_64-linux-gnu/libz.so;/usr/lib/x86_64-linux-gnu/libtiff.so;/usr/lib/x86_64-linux-gnu/libfontconfig.so;/usr/lib/x86_64-linux-gnu/libpangoft2-1.0.so;/usr/lib/x86_64-linux-gnu/libSDL2main.a;/usr/lib/x86_64-linux-gnu/libSDL2.so;-lwx_baseu-3.1;/usr/lib/x86_64-linux-gnu/libexpat.so;/usr/lib/x86_64-linux-gnu/libz.so;/usr/lib/x86_64-linux-gnu/libpcre2-32.so;/usr/lib/x86_64-linux-gnu/libc.so;-lpthread;-ldl (found suitable version "3.1.6", minimum required is "3.1") 
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /home/owen/CLionProjects/Radon/cmake-build-debug

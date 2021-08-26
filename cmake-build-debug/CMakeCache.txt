@@ -241,6 +241,9 @@ wxWidgets_CONFIG_EXECUTABLE:FILEPATH=/home/owen/CLionProjects/Radon/dep/wxWidget
 //Use debug build?
 wxWidgets_USE_DEBUG:BOOL=OFF
 
+//Link libraries statically?
+wxWidgets_USE_STATIC:BOOL=ON
+
 //Location of wxWidgets resource file compiler binary (wxrc)
 wxWidgets_wxrc_EXECUTABLE:FILEPATH=/home/owen/CLionProjects/Radon/dep/wxWidgets-build/bin/wxrc
 
