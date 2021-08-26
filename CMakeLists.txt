@@ -3,6 +3,8 @@ cmake_minimum_required(VERSION 3.6 FATAL_ERROR)
 # Name the project
 project(Radon)
 
+list(APPEND CMAKE_PREFIX_PATH ${PROJECT_SOURCE_DIR}/dep/wxWidgets-build)
+
 # Request the required wxWidgets libs
 find_package(wxWidgets 3.1 COMPONENTS core base richtext adv html xml REQUIRED)
 
