@@ -51,7 +51,9 @@ wxFont Main::addPrivateFont(const wxString& fileName, const wxString& faceName)
 
     privfont << "font/" + fileName;
 
+#if RA_DEBUG
     std::cout << privfont << std::endl;
+#endif
 
     if (!wxFont::AddPrivateFont(privfont)) {
         wxLogMessage("Could not load private fonts");
