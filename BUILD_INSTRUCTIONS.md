@@ -1,6 +1,6 @@
-#BUILD INSTRUCTIONS
+# BUILD INSTRUCTIONS
 
-#Windows:
+# Windows:
 
 Download and install Microsoft Visual Studio, Git and CMake.
 
