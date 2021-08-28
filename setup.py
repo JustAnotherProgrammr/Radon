@@ -30,4 +30,4 @@ elif sys.platform.startswith("linux"):
 	os.chdir("../..")
 	os.system("cmake -DRA_DEBUG=OFF .")
 	os.system("cmake --build . --target Radon")
-	print("Compiled Radon for Windows")
+	print("Compiled Radon for Linux")
