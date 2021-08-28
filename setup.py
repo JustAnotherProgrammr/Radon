@@ -19,7 +19,7 @@ elif sys.platform.startswith("win32"):
 	os.system("cmake --build . --target Radon")
 	print("Compiled Radon for Windows")
 elif sys.platform.startswith("linux"):
-	print("Detected OS: Windows\n")
+	print("Detected OS: Linux\n")
 	os.system("mkdir dep")
 	os.chdir("dep")
 	os.system("mkdir wxWidgets-build")	
