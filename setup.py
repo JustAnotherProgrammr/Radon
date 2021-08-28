@@ -4,7 +4,7 @@ import os
 
 if sys.platform.startswith("darwin"):
 	print("Detected OS: OSX\n")
-	subprocess.Popen("echo Radon Doesn't Support MacOS, Sorry :(", shell=True)
+	print("Radon currently doesn't support MacOS. Sorry! ¯\_(ツ)_/¯")
 elif sys.platform.startswith("win32"):
 	print("Detected OS: Windows\n")
 	os.system("mkdir dep")
