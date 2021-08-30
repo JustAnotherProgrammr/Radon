@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.6 FATAL_ERROR)
 # Project name
 project(Radon LANGUAGES CXX)
 
-list(APPEND CMAKE_PREFIX_PATH ${PROJECT_SOURCE_DIR}/dep/wxWidgets-build)
+list(APPEND CMAKE_PREFIX_PATH ${PROJECT_SOURCE_DIR}/vendor/wxWidgets-build)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
