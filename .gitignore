@@ -1,0 +1,8 @@
+# Local directories #
+#####################
+dep
+dep/**
+cmake-build*
+.idea
+vendor
+vendor/**
