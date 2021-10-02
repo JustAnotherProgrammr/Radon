@@ -4,3 +4,5 @@ dep
 dep/**
 cmake-build*
 .idea
+vendor
+vendor/**
