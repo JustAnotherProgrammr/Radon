@@ -2,8 +2,7 @@
 // Created by owen on 2021-07-10.
 //
 
-#ifndef RADON_APP_H
-#define RADON_APP_H
+#pragma once
 
 #include <wx/wx.h>
 #include "Main.h"
@@ -18,5 +17,3 @@ private:
 public:
     virtual bool OnInit();
 };
-
-#endif //RADON_APP_H

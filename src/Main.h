@@ -2,8 +2,7 @@
 // Created by owen on 2021-07-10.
 //
 
-#ifndef RADON_MAIN_H
-#define RADON_MAIN_H
+#pragma once
 
 #include <wx/wx.h>
 #include <wx/richtext/richtextctrl.h>
@@ -29,14 +28,12 @@ private:
 public:
     wxFont addPrivateFont(const wxString& pathName, const wxString& faceName);
     void loadFile();
-    void saveFile();
+    void saveFile(bool addDialog);
+    void updateTitle();
 private:
     wxRichTextCtrl *m_tbx = nullptr;
-    wxFont *m_font1 = nullptr;
     wxMenuBar *m_mbar = nullptr;
     wxToolBar *m_toolbar = nullptr;
     wxMenu *m_modemenu = nullptr;
 wxDECLARE_EVENT_TABLE();
 };
-
-#endif //RADON_MAIN_H

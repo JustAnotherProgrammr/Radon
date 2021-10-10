@@ -4,10 +4,6 @@
 
 #include "Main.h"
 
-wxString defaultDocumentName = "Untitled Document";
-wxString exportPath;
-wxString importPath;
-
 wxBEGIN_EVENT_TABLE(Main, wxFrame)
                 EVT_MENU(10002, Main::OnMenuOpen)
                 EVT_MENU(10004, Main::OnMenuSave)
@@ -16,6 +12,11 @@ wxBEGIN_EVENT_TABLE(Main, wxFrame)
                 EVT_MENU(10007, Main::OnEditMode)
                 EVT_MENU(10008, Main::OnViewMode)
 wxEND_EVENT_TABLE()
+
+wxString defaultDocumentName = "Untitled Document";
+wxString exportPath;
+wxString importPath;
+wxString currentDocumentName;
 
 Main::Main() : wxFrame(nullptr, wxID_ANY, "Radon - " + defaultDocumentName, wxPoint(0, 0), wxSize(800, 600))
 {
@@ -28,7 +29,7 @@ Main::Main() : wxFrame(nullptr, wxID_ANY, "Radon - " + defaultDocumentName, wxPo
     m_mbar = new wxMenuBar();
     this->SetMenuBar(m_mbar);
     // Populate menu bar
-    wxMenu *menuFile = new wxMenu();
+    auto *menuFile = new wxMenu();
     menuFile->Append(10001, "New");
     menuFile->Append(10002, "Open");
     menuFile->Append(10003, "Open Recent");
@@ -53,8 +54,65 @@ Main::Main() : wxFrame(nullptr, wxID_ANY, "Radon - " + defaultDocumentName, wxPo
     m_tbx = new wxRichTextCtrl(this, wxID_ANY, "", wxDefaultPosition, wxDefaultSize, wxVSCROLL | wxHSCROLL | wxRE_MULTILINE | wxBORDER_NONE | wxWANTS_CHARS);
     m_tbx->SetFont(InterReg);
     m_tbx->SetFilename(defaultDocumentName);
-    wxGridSizer *m_gridSizer = new wxGridSizer(10, 10, 0, 0);
+    auto *m_gridSizer = new wxGridSizer(10, 10, 0, 0);
     m_gridSizer->Add(m_tbx, 1, wxEXPAND | wxALL);
+}
+
+Main::~Main()
+{
+
+}
+
+void Main::OnMenuNew(wxCommandEvent & evt)
+{
+
+}
+
+void Main::OnMenuOpen(wxCommandEvent & evt)
+{
+    loadFile();
+    evt.Skip();
+}
+
+void Main::OnMenuSave(wxCommandEvent & evt)
+{
+    if (exportPath != wxEmptyString)
+    {
+        Main::saveFile(false);
+    } else if(importPath != wxEmptyString)
+    {
+        Main::saveFile(false);
+    } else
+    {
+        Main::saveFile(true);
+    }
+    evt.Skip();
+}
+
+void Main::OnMenuSaveAs(wxCommandEvent & evt)
+{
+    saveFile(true);
+    evt.Skip();
+}
+
+void Main::OnMenuExit(wxCommandEvent & evt)
+{
+    Close();
+    evt.Skip();
+}
+
+void Main::OnEditMode(wxCommandEvent &evt)
+{
+    m_tbx->SetEditable(true);
+    m_tbx->GetCaret()->Show();
+    evt.Skip();
+}
+
+void Main::OnViewMode(wxCommandEvent &evt)
+{
+    m_tbx->SetEditable(false);
+    m_tbx->GetCaret()->Hide();
+    evt.Skip();
 }
 
 wxFont Main::addPrivateFont(const wxString& fileName, const wxString& faceName)
@@ -83,114 +141,44 @@ wxFont Main::addPrivateFont(const wxString& fileName, const wxString& faceName)
     return font;
 }
 
-void Main::OnMenuNew(wxCommandEvent & evt)
-{
-
-}
-
-void Main::OnMenuOpen(wxCommandEvent & evt)
-{
-    loadFile();
-    evt.Skip();
-}
-
-void Main::OnMenuSave(wxCommandEvent & evt)
-{
-    if (exportPath != wxEmptyString)
-    {
-        m_tbx->SaveFile(exportPath, wxRICHTEXT_TYPE_TEXT);
-    } else if(importPath != wxEmptyString)
-    {
-        m_tbx->SaveFile(importPath, wxRICHTEXT_TYPE_TEXT);
-#if RA_DEBUG
-        if (importPath.EndsWith(".txt"))
-        {
-            std::cout << "ReSaved " << importPath << std::endl;
-        } else
-        {
-            std::cout << "ReSaved " << importPath << ".txt" << std::endl;
-        }
-#endif
-    } else
-    {
-        Main::saveFile();
-    }
-    evt.Skip();
-}
-
-void Main::OnMenuSaveAs(wxCommandEvent & evt)
-{
-    saveFile();
-    evt.Skip();
-}
-
-void Main::OnMenuExit(wxCommandEvent & evt)
-{
-    Close();
-    evt.Skip();
-}
-
-void Main::OnEditMode(wxCommandEvent &evt)
-{
-    m_tbx->SetEditable(true);
-    m_tbx->GetCaret()->Show();
-    evt.Skip();
-}
-
-void Main::OnViewMode(wxCommandEvent &evt)
-{
-    m_tbx->SetEditable(false);
-    m_tbx->GetCaret()->Hide();
-    evt.Skip();
-}
-
 void Main::loadFile()
 {
-    wxString importName;
     wxFileDialog fdlg(
             this, ("Open File"), "", "", "Txt Files (*.txt)|*.txt", wxFD_OPEN|wxFD_FILE_MUST_EXIST);
     fdlg.ShowModal();
-    importPath = fdlg.GetPath();
-    importName = fdlg.GetFilename();
-    if (importPath != wxEmptyString) {
+    if (importPath != wxEmptyString)
+    {
+        importPath = fdlg.GetPath();
+        currentDocumentName = fdlg.GetFilename();
         m_tbx->LoadFile(importPath, wxRICHTEXT_TYPE_TEXT);
-#if RA_DEBUG
-        std::cout << "Loaded " << importPath << std::endl;
-#endif
+        updateTitle();
     }
-    // Update the text box file name and wxFrame name
-    m_tbx->SetFilename(importName);
-    this->SetTitle("Radon - " + importName);
 }
 
-void Main::saveFile()
+void Main::saveFile(bool addDialog)
 {
-    wxString exportName;
+    if (!addDialog)
+    {
+        m_tbx->SaveFile(exportPath);
+        return;
+    }
     wxFileDialog fdlg(
             this, ("Save File"), "", "", "Txt Files (*.txt)|*.txt", wxFD_SAVE|wxFD_OVERWRITE_PROMPT);
     fdlg.ShowModal();
-    if (fdlg.GetPath() != wxEmptyString)
-    {
-        if (fdlg.GetPath().EndsWith(".txt"))
-        {
+    if (fdlg.GetPath() != wxEmptyString) {
+        if (fdlg.GetPath().EndsWith(".txt")) {
             exportPath = fdlg.GetPath();
-            exportName = fdlg.GetFilename();
-        } else
-        {
+            currentDocumentName = fdlg.GetFilename();
+        } else {
             exportPath = fdlg.GetPath() << ".txt";
-            exportName = fdlg.GetFilename() << ".txt";
+            currentDocumentName = fdlg.GetFilename() << ".txt";
         }
         m_tbx->SaveFile(exportPath, wxRICHTEXT_TYPE_TEXT);
-#if RA_DEBUG
-        std::cout << "Saved " << exportPath << std::endl;
-#endif
+        updateTitle();
     }
-    // Update the text box file name and wxFrame name
-    m_tbx->SetFilename(exportName);
-    this->SetTitle("Radon - " + exportName);
 }
 
-Main::~Main()
+void Main::updateTitle()
 {
-
+    this->SetTitle("Radon - " + currentDocumentName);
 }
